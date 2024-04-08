@@ -2,6 +2,7 @@ package dev.nym.productservice.services;
 
 
 import dev.nym.productservice.dtos.FakeStoreProductDto;
+import dev.nym.productservice.exceptions.ProductNotFoundException;
 import dev.nym.productservice.interfaces.ProductService;
 import dev.nym.productservice.models.Product;
 import org.springframework.stereotype.Service;
@@ -16,15 +17,23 @@ class FakeStoreProductService implements ProductService {
     @Override
     public FakeStoreProductDto getProductById(Long id) {
         RestTemplate restTemplate = new RestTemplate();
-                return restTemplate.getForObject("https://fakestoreapi.com/products/" + id,
+                FakeStoreProductDto fakeStoreProductDto = restTemplate.getForObject("https://fakestoreapi.com/products/" + id,
                 FakeStoreProductDto.class);
+
+        if (fakeStoreProductDto == null){
+            throw new ProductNotFoundException(id, "Product not found!");
+        }
+
+        return fakeStoreProductDto;
     }
 
     @Override
     public FakeStoreProductDto[] getAllProducts() {
         RestTemplate restTemplate = new RestTemplate();
-        return restTemplate.getForObject("https://fakestoreapi.com/products",
+                FakeStoreProductDto[] fakeStoreProductDto = restTemplate.getForObject("https://fakestoreapi.com/products",
                 FakeStoreProductDto[].class);
+
+        return fakeStoreProductDto;
     }
 
     @Override

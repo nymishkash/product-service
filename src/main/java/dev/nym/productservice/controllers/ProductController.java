@@ -2,20 +2,16 @@ package dev.nym.productservice.controllers;
 
 
 import dev.nym.productservice.dtos.FakeStoreProductDto;
-import dev.nym.productservice.models.Product;
 import dev.nym.productservice.services.FakeStoreProductService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
 
 @RestController
 //@RequestMapping("/products")
 public class ProductController {
 
-    private FakeStoreProductService fakeStoreProductService;
+    private final FakeStoreProductService fakeStoreProductService;
 
     ProductController(FakeStoreProductService fakeStoreProductService) {
         this.fakeStoreProductService = fakeStoreProductService;
