@@ -1,7 +1,9 @@
 package dev.nym.productservice.services;
 
 import dev.nym.productservice.dtos.FakeStoreCartDto;
+import dev.nym.productservice.dtos.FakeStoreProductDto;
 import dev.nym.productservice.interfaces.CartService;
+import dev.nym.productservice.models.Product;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 

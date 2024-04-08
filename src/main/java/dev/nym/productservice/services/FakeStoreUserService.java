@@ -18,7 +18,7 @@ public class FakeStoreUserService implements UserService {
                 restTemplate.getForObject("https://fakestoreapi.com/users/" + id,
                 FakeStoreUserDto.class);
 
-        System.out.println("hello");
+//        System.out.println("hello");
 
         return fakeStoreUserDto;
     }

@@ -1,7 +1,7 @@
 package dev.nym.productservice.controllers;
 
 import dev.nym.productservice.dtos.FakeStoreCartDto;
-import dev.nym.productservice.dtos.FakeStoreProductDto;
+import dev.nym.productservice.models.Product;
 import dev.nym.productservice.services.FakeStoreCartService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
