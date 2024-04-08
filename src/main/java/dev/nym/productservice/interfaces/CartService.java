@@ -1,4 +1,4 @@
-package dev.nym.productservice.services;
+package dev.nym.productservice.interfaces;
 
 import dev.nym.productservice.dtos.FakeStoreCartDto;
 
