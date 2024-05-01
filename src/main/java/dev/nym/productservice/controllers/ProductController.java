@@ -1,10 +1,11 @@
 package dev.nym.productservice.controllers;
 
 
-import dev.nym.productservice.dtos.FakeStoreProductDto;
+import dev.nym.productservice.models.Product;
 import dev.nym.productservice.services.FakeStoreProductService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -18,12 +19,12 @@ public class ProductController {
     }
 
     @GetMapping("/products")
-    public FakeStoreProductDto[] getAllProducts() {
+    public Product[] getAllProducts() {
         return fakeStoreProductService.getAllProducts();
     }
 
     @GetMapping("/products/{id}")
-    public FakeStoreProductDto getProductById(@PathVariable("id") Long id) {
+    public Product getProductById(@PathVariable("id") Long id) {
         return fakeStoreProductService.getProductById(id);
     }
 
@@ -33,13 +34,20 @@ public class ProductController {
     }
 
     @GetMapping("/products/category/{category}")
-    public FakeStoreProductDto[] getProductsByCategory(@PathVariable("category") String category) {
+    public Product[] getProductsByCategory(@PathVariable("category") String category) {
         return fakeStoreProductService.getProductsByCategory(category);
     }
 
     @GetMapping("/products?limit={num}")
-    public FakeStoreProductDto[] getProductsInLimit(@PathVariable("num") String num) {
+    public Product[] getProductsInLimit(@PathVariable("num") Integer num) {
         return fakeStoreProductService.getProductsInLimit(num);
+    }
+
+
+
+    @PostMapping("/products")
+    public Product createProduct(Product product) {
+        return fakeStoreProductService.createProduct(product);
     }
 
 }
